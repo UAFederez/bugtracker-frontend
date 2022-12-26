@@ -1,12 +1,45 @@
+import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import AnchorLink from "../components/AnchorLink";
 import CTAButton from "../components/controls/CTAButton";
 import TextInput from "../components/controls/TextInput";
 import InputGroup from "../components/Forms/InputGroup";
 
 export default function Register() {
+    const firstNameInput = useRef();
+    const lastNameInput = useRef();
+    const emailInput = useRef();
+    const passwordInput = useRef();
+    const [errorMessage, setErrorMessage] = useState("");
+    const navigate = useNavigate();
+
     const handleRegisterSubmit = async (event) => {
         event.preventDefault();
-        console.log("register");
+        const response = await fetch(
+            `${import.meta.env.VITE_BACKEND_URL}/auth/register`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    firstName: firstNameInput.current.value,
+                    lastName: lastNameInput.current.value,
+                    email: emailInput.current.value,
+                    password: passwordInput.current.value,
+                }),
+            }
+        );
+        if (response.status !== 201) {
+            setErrorMessage(
+                "User already exists. Redirecting you to the login page"
+            );
+            setTimeout(() => {
+                navigate("/login");
+            }, 1500);
+        } else {
+            navigate("/login");
+        }
     };
 
     return (
@@ -42,6 +75,27 @@ export default function Register() {
                                     role changed.
                                 </p>
                             </div>
+                            {errorMessage && (
+                                <div className="flex flex-row rounded-md bg-rose-50 text-rose-700 p-4 gap-4">
+                                    <div>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            strokeWidth={1.5}
+                                            stroke="currentColor"
+                                            className="w-6 h-6"
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"
+                                            />
+                                        </svg>
+                                    </div>
+                                    <div>{errorMessage}</div>
+                                </div>
+                            )}
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
                                 <InputGroup>
@@ -53,6 +107,8 @@ export default function Register() {
                                     </label>
                                     <TextInput
                                         type="text"
+                                        Ref={firstNameInput}
+                                        required
                                         name="firstName"
                                         id="firstName"
                                         placeholder="John"
@@ -67,6 +123,8 @@ export default function Register() {
                                     </label>
                                     <TextInput
                                         type="text"
+                                        Ref={lastNameInput}
+                                        required
                                         name="lastName"
                                         id="lastName"
                                         placeholder="Doe"
@@ -81,6 +139,8 @@ export default function Register() {
                                     </label>
                                     <TextInput
                                         type="email"
+                                        Ref={emailInput}
+                                        required
                                         name="email"
                                         id="email"
                                         placeholder="johndoe@email.com"
@@ -95,6 +155,8 @@ export default function Register() {
                                     </label>
                                     <TextInput
                                         type="password"
+                                        Ref={passwordInput}
+                                        required
                                         name="password"
                                         id="password"
                                         placeholder=""

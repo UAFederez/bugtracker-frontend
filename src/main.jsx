@@ -7,11 +7,16 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import PrivateRoute from "./routes/PrivateRoute";
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Home />,
+        element: (
+            <PrivateRoute>
+                <Home />
+            </PrivateRoute>
+        ),
     },
     {
         path: "/login",
