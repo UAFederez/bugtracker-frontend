@@ -127,7 +127,9 @@ export default function Root() {
                         />
                     </svg>
 
-                    <p>Username</p>
+                    <p>
+                        {user.firstName} {user.lastName}
+                    </p>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -146,8 +148,10 @@ export default function Root() {
             </div>
             <div className="__content__ | flex pt-14 min-h-screen">
                 <SideNavigation user={user} links={links} />
-                <div id="main-content" className="p-4">
-                    <Outlet />
+                <div id="main-content" className="p-16 flex-1">
+                    <div className="max-w-4xl mx-auto">
+                        <Outlet />
+                    </div>
                 </div>
             </div>
         </>

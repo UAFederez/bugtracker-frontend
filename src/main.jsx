@@ -8,6 +8,8 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import PrivateRoute from "./routes/PrivateRoute";
 import Dashboard from "./pages/Dashboard";
+import Projects from "./pages/Projects";
+import Tickets from "./pages/Tickets";
 
 const router = createBrowserRouter([
     {
@@ -22,6 +24,14 @@ const router = createBrowserRouter([
             {
                 path: "",
                 element: <Dashboard />,
+            },
+            {
+                path: "/tickets",
+                element: <Tickets />,
+            },
+            {
+                path: "/projects",
+                element: <Projects />,
             },
         ],
     },
