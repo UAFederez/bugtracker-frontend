@@ -1,8 +1,5 @@
 import { useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import AnchorLink from "../components/AnchorLink";
-import CTAButton from "../components/controls/CTAButton";
-import TextInput from "../components/controls/TextInput";
+import { Link, useNavigate } from "react-router-dom";
 import InputGroup from "../components/Forms/InputGroup";
 
 export default function Login() {
@@ -75,11 +72,12 @@ export default function Login() {
                                     >
                                         E-mail address
                                     </label>
-                                    <TextInput
+                                    <input
+                                        className="text-input-light-bg"
                                         type="email"
                                         name="email"
                                         id="email"
-                                        Ref={emailInput}
+                                        ref={emailInput}
                                         required
                                         placeholder="johndoe@gmail.com"
                                     />
@@ -91,11 +89,12 @@ export default function Login() {
                                     >
                                         Password
                                     </label>
-                                    <TextInput
+                                    <input
+                                        className="text-input-light-bg"
                                         type="password"
                                         name="password"
                                         id="password"
-                                        Ref={passwordInput}
+                                        ref={passwordInput}
                                         required
                                         placeholder="johndoe@gmail.com"
                                     />
@@ -103,12 +102,17 @@ export default function Login() {
                             </div>
                         </div>
                         <div className="flex flex-col gap-2 text-zinc-400 italic">
-                            <CTAButton className="w-full" type="submit">
+                            <button
+                                className="w-full btn-primary"
+                                type="submit"
+                            >
                                 Login
-                            </CTAButton>
+                            </button>
                             <span>
                                 Don't have an account yet? Register{" "}
-                                <AnchorLink href="/register">here.</AnchorLink>
+                                <Link to="/register" className="link">
+                                    here.
+                                </Link>
                             </span>
                         </div>
                     </form>

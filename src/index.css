@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .btn-primary {
+        @apply bg-indigo-500 text-indigo-50 hover:bg-indigo-700  py-2 px-4 font-bold rounded-md;
+    }
+
+    .text-input-light-bg {
+        @apply bg-indigo-50 rounded-md py-2 px-4;
+    }
+
+    .link {
+        @apply hover:text-sky-700 underline text-sky-500;
+    }
+}

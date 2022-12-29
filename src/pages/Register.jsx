@@ -1,8 +1,5 @@
 import { useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import AnchorLink from "../components/AnchorLink";
-import CTAButton from "../components/controls/CTAButton";
-import TextInput from "../components/controls/TextInput";
+import { Link, useNavigate } from "react-router-dom";
 import InputGroup from "../components/Forms/InputGroup";
 
 export default function Register() {
@@ -105,9 +102,10 @@ export default function Register() {
                                     >
                                         First name
                                     </label>
-                                    <TextInput
+                                    <input
+                                        className="text-input-light-bg"
                                         type="text"
-                                        Ref={firstNameInput}
+                                        ref={firstNameInput}
                                         required
                                         name="firstName"
                                         id="firstName"
@@ -121,9 +119,10 @@ export default function Register() {
                                     >
                                         Last name
                                     </label>
-                                    <TextInput
+                                    <input
+                                        className="text-input-light-bg"
                                         type="text"
-                                        Ref={lastNameInput}
+                                        ref={lastNameInput}
                                         required
                                         name="lastName"
                                         id="lastName"
@@ -137,9 +136,10 @@ export default function Register() {
                                     >
                                         E-mail address
                                     </label>
-                                    <TextInput
+                                    <input
                                         type="email"
-                                        Ref={emailInput}
+                                        className="text-input-light-bg"
+                                        ref={emailInput}
                                         required
                                         name="email"
                                         id="email"
@@ -153,9 +153,10 @@ export default function Register() {
                                     >
                                         Password
                                     </label>
-                                    <TextInput
+                                    <input
                                         type="password"
-                                        Ref={passwordInput}
+                                        className="text-input-light-bg"
+                                        ref={passwordInput}
                                         required
                                         name="password"
                                         id="password"
@@ -165,12 +166,17 @@ export default function Register() {
                             </div>
                         </div>
                         <div className="flex flex-col gap-2 text-zinc-400 italic">
-                            <CTAButton className="w-full" type="submit">
+                            <button
+                                className="w-full btn-primary"
+                                type="submit"
+                            >
                                 Sign up
-                            </CTAButton>
+                            </button>
                             <span>
                                 Already have an account? Login{" "}
-                                <AnchorLink href="/login">here.</AnchorLink>
+                                <Link className="link" to="/login">
+                                    here.
+                                </Link>
                             </span>
                         </div>
                     </form>
