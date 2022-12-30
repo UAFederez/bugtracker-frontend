@@ -45,7 +45,7 @@ export default function AccountDropdown({ user }) {
                 </button>
             </nav>
             {isDropdownVisible && (
-                <div className="fixed right-0 top-14 w-48 border flex flex-col">
+                <div className="fixed right-0 top-14 w-48 border flex flex-col z-50 bg-white">
                     <Link
                         to="/my-account"
                         className="p-4 hover:bg-zinc-800 hover:text-zinc-50 flex gap-2"
