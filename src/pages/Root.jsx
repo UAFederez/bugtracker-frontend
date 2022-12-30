@@ -136,7 +136,7 @@ export default function Root() {
 
     return (
         <>
-            <header className="__topbar__ | flex justify-between p-4 border-b fixed w-screen">
+            <header className="__topbar__ | flex justify-between p-4 border-b fixed w-screen z-50 bg-white">
                 <div className="__logo__ | flex gap-2 items-center">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -159,7 +159,7 @@ export default function Root() {
             <div className="__content__ | flex pt-14 min-h-screen">
                 <SideNavigation user={user} links={links} />
                 <main id="main-content" className="p-16 flex-1">
-                    <div className="max-w-4xl mx-auto">
+                    <div className="max-w-5xl mx-auto">
                         <Outlet />
                     </div>
                 </main>
