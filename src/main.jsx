@@ -10,6 +10,7 @@ import PrivateRoute from "./routes/PrivateRoute";
 import Dashboard from "./pages/Dashboard";
 import Projects from "./pages/Projects";
 import Tickets from "./pages/Tickets";
+import NewTicket from "./pages/NewTicket";
 
 const router = createBrowserRouter([
     {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
             {
                 path: "/tickets",
                 element: <Tickets />,
+            },
+            {
+                path: "/tickets/new/",
+                element: <NewTicket />,
             },
             {
                 path: "/projects",

@@ -27,14 +27,15 @@ export default function ListFilter({
                     value={"any"}
                     onChange={(event) => handleFilterChange(event, keyName)}
                     checked={filters[keyName].length === 0}
+                    className="w-4 h-4 shrink-0 mb-2"
                 />
                 <label className="text-sm">Any {keyName}</label>
             </div>
-            <div>
+            <div className="flex flex-col gap-2">
                 {list.map((item) => (
                     <div
                         key={idField ? item[idField] : item}
-                        className="flex gap-1 items-center"
+                        className="flex gap-2"
                     >
                         <input
                             type="checkbox"
@@ -45,6 +46,7 @@ export default function ListFilter({
                             onChange={(event) =>
                                 handleFilterChange(event, keyName)
                             }
+                            className="w-4 h-4 shrink-0"
                         />
                         <p className="text-sm">
                             {displayField ? item[displayField] : item}
