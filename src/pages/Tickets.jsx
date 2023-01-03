@@ -153,7 +153,9 @@ export default function Tickets() {
                                         {ticket.title}
                                     </h5>
                                 </div>
-                                <p>{ticket.description}</p>
+                                <pre className="font-sans line-clamp-1">
+                                    {ticket.description}
+                                </pre>
                                 <div className="text-sm mt-2 flex flex-col gap-2">
                                     <div className="flex items-center gap-1 text-zinc-700">
                                         <svg
