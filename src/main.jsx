@@ -11,6 +11,7 @@ import Dashboard from "./pages/Dashboard";
 import Projects from "./pages/Projects";
 import Tickets from "./pages/Tickets";
 import NewTicket from "./pages/NewTicket";
+import TicketDetails from "./pages/TicketDetails";
 
 const router = createBrowserRouter([
     {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
             {
                 path: "/tickets/new/",
                 element: <NewTicket />,
+            },
+            {
+                path: "/tickets/:ticketId",
+                element: <TicketDetails />,
             },
             {
                 path: "/projects",
