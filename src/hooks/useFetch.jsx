@@ -10,7 +10,6 @@ export default function useFetch(route) {
             .then((response) => response.json())
             .then((json) => {
                 setLoading(false);
-                console.log(json);
                 setData(json);
             })
             .catch((error) => {
